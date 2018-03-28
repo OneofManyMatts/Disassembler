@@ -10,43 +10,55 @@ uncond_str = {'jmp', 'call'}
 
 recursive_list = ["0x00"] #We start with only the base value to parse
 pairs_list = []
+timothy = ""
+first = 0
+last = 0
 md = Cs(CS_ARCH_X86, CS_MODE_32)
 
 def linear_disasm(binary, start = 0x00):
 	for oper in md.disasm(binary, start):
 		print("0x%x:\t%s\t%s" %(oper.address, oper.mnemonic, oper.op_str))
 
-def str_to_hex( strin ):
-	return int(strin, 0)
-
 def unchecked( address ):
-	#print("Base: %s"%(int(address, 0)))
+	print("Base: %s"%address)
 	for p in pairs_list :
-		#print("Compare: %s %s"%(int(p[0]), int(p[1])))
-		if (int(address, 0) >= p[0]) and (int(address, 0) <= p[1]) :
+		print("Compare: %s %s"%(int(p[0]), int(p[1])))
+		if (address >= p[0]) and (address < p[1]) :
 			return False
-	return True
+	print("Haven't gone there!")
+	return True	
 	
 def addpoints ( first, last ):
 	newpoint = [first, last]
 	pairs_list.append(newpoint)
 
-def recursive_disasm(start, code):
-	for i in md.disasm(code, start):
-		print("0x%x:\t%s\t%s" %(i.address, i.mnemonic, i.op_str))
-		if (i.mnemonic == 'return'):
+def recursive_disasm(start, i):
+	while i < len(timothy):
+		bill = timothy[i]
+		print("0x%x:\t%s\t%s" %(bill.address, bill.mnemonic, bill.op_str))
+		if (bill.mnemonic == 'return'):
 			return
-		
-		if (i.mnemonic in uncond_str):
-			addpoints(start, i.address)
-			if unchecked(i.op_str): # If we've already written this part there's no need to do it again.
-				recursive(str_to_hex(i.op_str), code)
-			return
-
-		if (i.mnemonic in condit_str):
-			addpoints(start, i.address)
-			if unchecked(i.op_str): # If we've already written this part there's no need to do it again.
-				recursive(str_to_hex(i.op_str), code)
+		if (bill.mnemonic in uncond_str):
+			addpoints(start, bill.address)
+			try:			
+				ti = int(bill.op_str, 16)
+				if unchecked(ti): # If we've already written this part there's no need to do it again.
+					print("Going to "+bill.op_str)
+					recursive_disasm(start, ti-start)
+			except ValueError as e:
+				print("Apologies- Non-int jump")
+			return		
+		if (bill.mnemonic in condit_str):
+			addpoints(start, bill.address)
+			try:			
+				ti = int(bill.op_str, 16)
+				if unchecked(ti): # If we've already written this part there's no need to do it again.
+					print("Going to "+bill.op_str)
+					recursive_disasm(start, ti-start)
+			except ValueError as e:
+				print("Apologies- Non-int jump")		
+		i = i+1
+	print("Done!")
 
 def get_elf_entry_point(file):
 	cmd = subprocess.Popen('readelf -h ' + file, shell=True, stdout=subprocess.PIPE)
@@ -55,7 +67,7 @@ def get_elf_entry_point(file):
 		if "Entry point address:" in line:
 			address = address_regex.search(line)
 			if address:
-				return str_to_hex(address.group(1))
+				return int(address.group(1), 0)
 			else:
 				print "ERROR: Tried to find entry point address using readelf -h " + file + ", but could not parse line!"
 				exit()
@@ -85,7 +97,7 @@ def is_elf(file_disas):
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description='Disassemble a binary or an ELF file using recursive or linear disassembly.')
-	parser.add_argument('--file', metavar='f', type=argparse.FileType('r'), help='the file to disassemble', required=True)
+	parser.add_argument('--file', metavar='f', type=argparse.FileType('rb'), help='the file to disassemble', required=True)
 	parser.set_defaults(disas_type='linear')
 	
 	disassembly_type = parser.add_mutually_exclusive_group()
@@ -108,6 +120,8 @@ if __name__ == "__main__":
 	if args.disas_type == 'linear':
 		linear_disasm(shellcode, entry_point)
 	elif args.disas_type == 'recursive':
-		print "To be implemented!" #TODO: Implement recursive disassembler.
+		timothy = list(md.disasm(shellcode, entry_point))
+		recursive_disasm(entry_point, 0)
+		#print "To be implemented!" #TODO: Implement recursive disassembler.
 	else:
 		print "ERROR: Unexpected disassembly type that is not implemented in this version!"
