@@ -32,7 +32,9 @@ def addpoints ( first, last ):
 	newpoint = [first, last]
 	pairs_list.append(newpoint)
 
-def recursive_disasm(start, i):
+'''
+def recursive_disasm(start, file, i):
+	f = open(file, 'rb')	
 	while i < len(timothy):
 		bill = timothy[i]
 		print("0x%x:\t%s\t%s" %(bill.address, bill.mnemonic, bill.op_str))
@@ -54,6 +56,37 @@ def recursive_disasm(start, i):
 				ti = int(bill.op_str, 16)
 				if unchecked(ti): # If we've already written this part there's no need to do it again.
 					print("Going to "+bill.op_str)
+					recursive_disasm(start, ti-start)
+			except ValueError as e:
+				print("Apologies- Non-int jump")		
+		i = i+1
+	print("Done!")
+
+'''
+
+def recursive_disasm(start, i):
+	while i < len(timothy):
+		bill = timothy[i]
+		print("0x%x:\t%s\t%s" %(bill.address, bill.mnemonic, bill.op_str))
+		if (bill.mnemonic == 'return'):
+			return
+		if (bill.mnemonic in uncond_str):
+			addpoints(start, bill.address)
+			try:			
+				ti = int(bill.op_str, 16)
+				print(bill.op_str+" is "+str(ti-start)+" units away. We are at "+str(i)+" and go as far as "+str(len(timothy)))				
+				if unchecked(ti): # If we've already written this part there's no need to do it again.
+					recursive_disasm(start, ti-start)
+				
+			except ValueError as e:
+				print("Apologies- Non-int jump")
+			return		
+		if (bill.mnemonic in condit_str):
+			addpoints(start, bill.address)
+			try:			
+				ti = int(bill.op_str, 16)
+				print(bill.op_str+" is "+str(ti-start)+" units away. We are at "+str(i)+" and go as far as "+str(len(timothy)))		
+				if unchecked(ti): # If we've already written this part there's no need to do it again.
 					recursive_disasm(start, ti-start)
 			except ValueError as e:
 				print("Apologies- Non-int jump")		
@@ -93,7 +126,6 @@ def is_elf(file_disas):
 
 	# In the case the file is less then 4 bytes, return False
 	return False
-
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description='Disassemble a binary or an ELF file using recursive or linear disassembly.')
