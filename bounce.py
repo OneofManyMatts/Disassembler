@@ -20,78 +20,92 @@ def linear_disasm(binary, start = 0x00):
 		print("0x%x:\t%s\t%s" %(oper.address, oper.mnemonic, oper.op_str))
 
 def unchecked( address ):
-	print("Base: %s"%address)
+	#print("Base: %s"%address)
 	for p in pairs_list :
-		print("Compare: %s %s"%(int(p[0]), int(p[1])))
+		#print("Compare: %s %s"%(int(p[0]), int(p[1])))
 		if (address >= p[0]) and (address < p[1]) :
 			return False
-	print("Haven't gone there!")
+	#print("Haven't gone there!")
 	return True	
 	
+def update_list():
+	for p in pairs_list:
+		for g in pairs_list:
+			if p != g:
+				p_0 = p[0]
+				p_1 = p[1]
+				g_0 = g[0]
+				g_1 = g[1]
+				if p_0 == g_0 and p_1 == g_1 :
+					pairs_list.remove(g)
+					break
+				if p_0 <= g_0 and p_1 >= g_1 :
+					pairs_list.remove(g)
+					break
+				if p_0 <= g_0 and p_1 <= g_1 :
+					pairs_list.remove(p)
+					pairs_list.remove(g)
+					addpoints(p_0, g_1)
+				if g_0 <= p_0 and g_1 >= p_1 :
+					pairs_list.remove(p)
+					break
+				if g_0 <= p_0 and g_1 <= p_1 :
+					pairs_list.remove(p)
+					pairs_list.remove(g)
+					addpoints(g_0, p_1)				
+
 def addpoints ( first, last ):
 	newpoint = [first, last]
 	pairs_list.append(newpoint)
+	update_list()
 
-'''
-def recursive_disasm(start, file, i):
-	f = open(file, 'rb')	
-	while i < len(timothy):
-		bill = timothy[i]
-		print("0x%x:\t%s\t%s" %(bill.address, bill.mnemonic, bill.op_str))
-		if (bill.mnemonic == 'return'):
-			return
-		if (bill.mnemonic in uncond_str):
-			addpoints(start, bill.address)
-			try:			
-				ti = int(bill.op_str, 16)
-				if unchecked(ti): # If we've already written this part there's no need to do it again.
-					print("Going to "+bill.op_str)
-					recursive_disasm(start, ti-start)
-			except ValueError as e:
-				print("Apologies- Non-int jump")
-			return		
-		if (bill.mnemonic in condit_str):
-			addpoints(start, bill.address)
-			try:			
-				ti = int(bill.op_str, 16)
-				if unchecked(ti): # If we've already written this part there's no need to do it again.
-					print("Going to "+bill.op_str)
-					recursive_disasm(start, ti-start)
-			except ValueError as e:
-				print("Apologies- Non-int jump")		
-		i = i+1
-	print("Done!")
 
-'''
+def recursive_disasm(start, f, last, i):
+	f.seek(i)	
+	for line in f:
+		bill = None
+		for will in md.disasm(line, start):
+			bill = will
+			#if bill.address > last:
+			#	return
+			print("0x%x:\t%s\t%s" %(bill.address, bill.mnemonic, bill.op_str))
+			if (bill.mnemonic == 'return'):
+				return
+			if (bill.mnemonic in uncond_str):
+				addpoints(start, bill.address+len(bill.bytes))
+				try:			
+					ti = int(bill.op_str, 0)
+					if unchecked(ti): # If we've already written this part there's no need to do it again.
+						print("Going to "+bill.op_str)
+						recursive_disasm(ti, f, last, ti-start+i)
+						break
+				except ValueError as e:
+					print("Apologies- Non-int jump")
+				break	
+			if (bill.mnemonic in condit_str):
+				addpoints(start, bill.address+len(bill.bytes))
+				try:			
+					ti = int(bill.op_str, 0)
+					if unchecked(ti): # If we've already written this part there's no need to do it again.
+						print("Going to "+bill.op_str)
+						recursive_disasm(ti, f, last, ti-start+i)
+				except ValueError as e:
+					print("Apologies- Non-int jump")
 
-def recursive_disasm(start, i):
-	while i < len(timothy):
-		bill = timothy[i]
-		print("0x%x:\t%s\t%s" %(bill.address, bill.mnemonic, bill.op_str))
-		if (bill.mnemonic == 'return'):
-			return
-		if (bill.mnemonic in uncond_str):
-			addpoints(start, bill.address)
-			try:			
-				ti = int(bill.op_str, 16)
-				print(bill.op_str+" is "+str(ti-start)+" units away. We are at "+str(i)+" and go as far as "+str(len(timothy)))				
-				if unchecked(ti): # If we've already written this part there's no need to do it again.
-					recursive_disasm(start, ti-start)
-				
-			except ValueError as e:
-				print("Apologies- Non-int jump")
-			return		
-		if (bill.mnemonic in condit_str):
-			addpoints(start, bill.address)
-			try:			
-				ti = int(bill.op_str, 16)
-				print(bill.op_str+" is "+str(ti-start)+" units away. We are at "+str(i)+" and go as far as "+str(len(timothy)))		
-				if unchecked(ti): # If we've already written this part there's no need to do it again.
-					recursive_disasm(start, ti-start)
-			except ValueError as e:
-				print("Apologies- Non-int jump")		
-		i = i+1
-	print("Done!")
+def get_text(file, a):# 1 is size, 2 is position
+	cmd = subprocess.Popen('objdump -h ' + file, shell=True, stdout=subprocess.PIPE)
+	address_regex = re.compile("^.*\.text(?: *)([0-9]*)(?: *)([0-9]*)(?: *)([0-9]*)(?: *)([0-9]*).*")
+	for line in cmd.stdout:
+		if ".text" in line:
+			address = address_regex.search(line)
+			if address:
+				return int(address.group(a), 16)
+			else:
+				print "ERROR: Tried to find text info using objdump -h " + file + ", but could not parse line!"
+				exit()
+	print "ERROR: Tried to find text info using objdump -h " + file + ", but did not find \.text information!"
+	exit()
+
 
 def get_elf_entry_point(file):
 	cmd = subprocess.Popen('readelf -h ' + file, shell=True, stdout=subprocess.PIPE)
@@ -144,16 +158,21 @@ if __name__ == "__main__":
 	if is_elf(file_disas):
 		print "This is an ELF File!."
 		entry_point = get_elf_entry_point(args.file.name)
+		text_length = get_text(args.file.name, 1)
+		text_offset = get_text(args.file.name, 4)
 	else:
 		print "This is not an ELF File!"
 		entry_point = 0x00
+		text_length = sys.getsizeof(shellcode)
+		text_offset = 0x00
 
 	# Once we have identified the entry point, we run the requested disassembler. By default, we use a linear disassembler.
 	if args.disas_type == 'linear':
 		linear_disasm(shellcode, entry_point)
 	elif args.disas_type == 'recursive':
-		timothy = list(md.disasm(shellcode, entry_point))
-		recursive_disasm(entry_point, 0)
+		#timothy = list(md.disasm(shellcode, entry_point))
+		last_byte = entry_point + text_length
+		recursive_disasm(entry_point, args.file, last_byte, text_offset)
 		#print "To be implemented!" #TODO: Implement recursive disassembler.
 	else:
 		print "ERROR: Unexpected disassembly type that is not implemented in this version!"
