@@ -61,12 +61,7 @@ def checkelf (code):
 				print("This is not an ELF file")
 				return False				
 
-shellcode = ""
-
-with open('hello', 'r') as myfile:
-	shellcode = myfile.read()#.replace('\n', '')
-md = Cs(CS_ARCH_X86, CS_MODE_32)
-start = 0x00
-if checkelf( shellcode ):
-	start = 0x03
-recursive( start , shellcode )
+code = "\xff\x25\x0a\x0c\x20\x00"
+md = Cs(CS_ARCH_X86, CS_MODE_64)
+for i in md.disasm(code, 0x00):
+	print("0x%x:\t%s\t%s" %(i.address, i.mnemonic, i.op_str))
