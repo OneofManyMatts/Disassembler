@@ -48,6 +48,7 @@ def update_list():
 					pairs_list.remove(p)
 					pairs_list.remove(g)
 					addpoints(p_0, g_1)
+					break
 				if g_0 <= p_0 and g_1 >= p_1 :
 					pairs_list.remove(p)
 					break
@@ -87,7 +88,7 @@ def recursive_disasm(start, f, i):
 						recursive_disasm(ti, f, ti-tj+i)
 				except ValueError as e:
 					print("Apologies- Non-int jump")
-					break	
+				return	
 			if (bill.mnemonic in condit_str):
 				addpoints(start, bill.address+len(bill.bytes))
 				try:			
@@ -102,7 +103,7 @@ def recursive_disasm(start, f, i):
 
 def get_text(file, a):# 1 is size, 2 is position
 	cmd = subprocess.Popen('objdump -h ' + file, shell=True, stdout=subprocess.PIPE)
-	address_regex = re.compile("^.*\.text(?: *)([0-9]*)(?: *)([0-9]*)(?: *)([0-9]*)(?: *)([0-9]*).*")
+	address_regex = re.compile("^.*\.text(?: *)([0-9a-f]*)(?: *)([0-9a-f]*)(?: *)([0-9a-f]*)(?: *)([0-9a-f]*).*")
 	for line in cmd.stdout:
 		if ".text" in line:
 			address = address_regex.search(line)
@@ -117,7 +118,7 @@ def get_text(file, a):# 1 is size, 2 is position
 
 def get_elf_entry_point(file):
 	cmd = subprocess.Popen('readelf -h ' + file, shell=True, stdout=subprocess.PIPE)
-	address_regex = re.compile("^(?: *)Entry point address:(?: *)(0x[0-9]+)(?: *)$")
+	address_regex = re.compile("^(?: *)Entry point address:(?: *)(0x[0-9a-f]+)(?: *)$")
 	for line in cmd.stdout:
 		if "Entry point address:" in line:
 			address = address_regex.search(line)
