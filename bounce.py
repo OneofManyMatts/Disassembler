@@ -17,9 +17,11 @@ last = 0
 md_32 = Cs(CS_ARCH_X86, CS_MODE_32)
 md = Cs(CS_ARCH_X86, CS_MODE_64)
 
-def linear_disasm(binary, start = 0x00):
-	for oper in md.disasm(binary, start):
-		print("0x%x:\t%s\t%s" %(oper.address, oper.mnemonic, oper.op_str))
+def linear_disasm(binary, start, startat):
+	binary.seek(startat)
+	for line in binary:
+		for oper in md.disasm(line, start):
+			print("0x%x:\t%s\t%s" %(oper.address, oper.mnemonic, oper.op_str))
 
 def unchecked( address ):
 	print("Base: %s"%address)
@@ -177,7 +179,7 @@ if __name__ == "__main__":
 
 	# Once we have identified the entry point, we run the requested disassembler. By default, we use a linear disassembler.
 	if args.disas_type == 'linear':
-		linear_disasm(shellcode, entry_point)
+		linear_disasm(args.file, entry_point, text_offset)
 	elif args.disas_type == 'recursive':
 		#timothy = list(md.disasm(shellcode, entry_point))
 		recursive_disasm(entry_point, args.file, text_offset)
