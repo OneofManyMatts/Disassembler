@@ -35,29 +35,30 @@ def unchecked( address ):
 def update_list():
 	for p in pairs_list:
 		for g in pairs_list:
-			if p != g:
-				p_0 = p[0]
-				p_1 = p[1]
-				g_0 = g[0]
-				g_1 = g[1]
-				if p_0 == g_0 and p_1 == g_1 :
-					pairs_list.remove(g)
-					break
-				if p_0 <= g_0 and p_1 >= g_1 :
-					pairs_list.remove(g)
-					break
-				if p_0 <= g_0 and p_1 <= g_1 :
-					pairs_list.remove(p)
-					pairs_list.remove(g)
-					addpoints(p_0, g_1)
-					break
-				if g_0 <= p_0 and g_1 >= p_1 :
-					pairs_list.remove(p)
-					break
-				if g_0 <= p_0 and g_1 <= p_1 :
-					pairs_list.remove(p)
-					pairs_list.remove(g)
-					addpoints(g_0, p_1)				
+			if p == g:
+				break
+			p_0 = p[0]
+			p_1 = p[1]
+			g_0 = g[0]
+			g_1 = g[1]
+			if p_0 == g_0 and p_1 == g_1 :
+				pairs_list.remove(g)
+				break
+			if p_0 <= g_0 and p_1 >= g_1 :
+				pairs_list.remove(g)
+				break
+			if p_0 <= g_0 and p_1 <= g_1 :
+				pairs_list.remove(p)
+				pairs_list.remove(g)
+				addpoints(p_0, g_1)
+				break
+			if g_0 <= p_0 and g_1 >= p_1 :
+				pairs_list.remove(p)
+				break
+			if g_0 <= p_0 and g_1 <= p_1 :
+				pairs_list.remove(p)
+				pairs_list.remove(g)
+				addpoints(g_0, p_1)				
 
 def addpoints ( first, last ):
 	newpoint = [first, last]
@@ -101,7 +102,6 @@ def recursive_disasm(start, f, i):
 						recursive_disasm(ti, f, ti-tj+i)
 				except ValueError as e:
 					print("Apologies- Non-int jump!")
-					break
 
 def get_text(file, a):# 1 is size, 2 is position
 	cmd = subprocess.Popen('objdump -h ' + file, shell=True, stdout=subprocess.PIPE)
