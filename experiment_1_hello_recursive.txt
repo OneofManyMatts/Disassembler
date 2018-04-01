@@ -1,0 +1,83 @@
+This is an ELF File!.
+0x400430:	xor	ebp, ebp
+0x400432:	mov	r9, rdx
+0x400435:	pop	rsi
+0x400436:	mov	rdx, rsp
+0x400439:	and	rsp, 0xfffffffffffffff0
+0x40043d:	push	rax
+0x40043e:	push	rsp
+0x40043f:	mov	r8, 0x4005b0
+0x400446:	mov	rcx, 0x400540
+0x40044d:	mov	rdi, 0x400526
+0x400454:	call	0x400410
+Adding: 4195376 4195417
+Base: 4195344
+Compare: 4195376 4195417
+0x400410:	or	al, 0x20
+0x400412:	add	byte ptr [rax + 1], ch
+0x400415:	add	byte ptr [rax], al
+0x400417:	add	cl, ch
+0x400419:	sar	bh, 1
+0x400410:	add	byte ptr [rax], al
+0x400412:	add	byte ptr [rax], al
+0x400414:	add	byte ptr [rax], al
+0x400416:	add	byte ptr [rdi], bh
+0x400418:	add	byte ptr [rax], al
+0x40041a:	add	byte ptr [rax], al
+0x40041c:	add	byte ptr [rax], al
+0x40041e:	add	byte ptr [rbx], cl
+0x400420:	add	byte ptr [rax], al
+0x400422:	add	byte ptr [rax], al
+0x400424:	add	byte ptr [rax], al
+0x400426:	add	byte ptr [rax], bl
+0x400428:	add	byte ptr [rax], al
+0x40042a:	add	byte ptr [rax], al
+0x40042c:	add	byte ptr [rax], al
+0x40042e:	add	byte ptr [rip], dl
+0x400434:	add	byte ptr [rax], al
+0x400436:	add	byte ptr [rax], al
+0x400438:	add	byte ptr [rax], al
+0x40043a:	add	byte ptr [rax], al
+0x40043c:	add	byte ptr [rax], al
+0x40043e:	add	byte ptr [rbx], al
+0x400440:	add	byte ptr [rax], al
+0x400442:	add	byte ptr [rax], al
+0x400444:	add	byte ptr [rax], al
+0x400446:	add	byte ptr [rax], al
+0x400448:	adc	byte ptr [rax], ah
+0x40044b:	add	byte ptr [rax], al
+0x40044d:	add	byte ptr [rax], al
+0x40044f:	add	al, byte ptr [rax]
+0x400451:	add	byte ptr [rax], al
+0x400453:	add	byte ptr [rax], al
+0x400455:	add	byte ptr [rax], al
+0x400457:	xor	byte ptr [rax], al
+0x400459:	add	byte ptr [rax], al
+0x40045b:	add	byte ptr [rax], al
+0x40045d:	add	byte ptr [rax], al
+0x40045f:	adc	al, 0
+0x400461:	add	byte ptr [rax], al
+0x400463:	add	byte ptr [rax], al
+0x400465:	add	byte ptr [rax], al
+0x400410:	add	byte ptr [rax + 0x4003], bl
+0x400416:	add	byte ptr [rax], al
+0x400418:	add	byte ptr [rax], al
+0x40041a:	add	byte ptr [rax], al
+0x40041c:	add	byte ptr [rax], al
+0x40041e:	add	byte ptr [rax], al
+0x400420:	add	byte ptr [rax], al
+0x400422:	add	byte ptr [rax], al
+0x400424:	add	byte ptr [rbx], al
+0x400426:	add	byte ptr [rbx], cl
+0x400428:	add	al, cl
+0x40042a:	add	eax, dword ptr [rax]
+0x40042d:	add	byte ptr [rax], al
+0x40042f:	add	byte ptr [rax], al
+0x400431:	add	byte ptr [rax], al
+0x400433:	add	byte ptr [rax], al
+0x400435:	add	byte ptr [rax], al
+0x400437:	add	byte ptr [rax], al
+0x400439:	add	byte ptr [rax], al
+0x40043b:	add	byte ptr [rax], al
+0x40043d:	add	eax, dword ptr [rax]
+0x40043f:	or	al, 0
