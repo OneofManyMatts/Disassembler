@@ -124,7 +124,7 @@ if __name__ == "__main__":
 	(entry_point, disas_size) = get_entry_point_and_size(file_name, file_content, args.disas_arch)
 
 	if args.disas_lib == 'capstone':
-		capstone_disasm(args.file, entry_point, disas_size, args.disas_arch, (args.disas_type == 'linear'))
+		capstone_disasm(file_name, entry_point, disas_size, args.disas_arch, (args.disas_type == 'linear'))
 	elif args.disas_lib == 'pydasm':
 		pydasm_disasm(file_name, entry_point, disas_size, (args.disas_type == 'linear'))
 	#elif args.disas_lib == 'pyxed':

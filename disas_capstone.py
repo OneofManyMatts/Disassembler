@@ -10,8 +10,11 @@ timothy = ""
 first = 0
 last = 0
 
-def capstone_disasm(file, start, size, arch, linear):
-	file_content = file.read()
+def capstone_disasm(file_name, start, size, arch, linear):
+	# Load file into a string buffer
+	with open(file_name,'r') as file:
+		file_content = file.read()
+
 	if arch == 64:
 		md = Cs(CS_ARCH_X86, CS_MODE_64)
 	else:
@@ -26,8 +29,6 @@ def capstone_disasm(file, start, size, arch, linear):
 				break
 	else:
 		recursive_disasm_capstone(start, file, 0x00, md)
-		print "CAPSTONE - RECURSIVE: TO BE IMPLEMENTED!"
-
 
 
 def unchecked( address ):
