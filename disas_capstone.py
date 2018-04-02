@@ -1,4 +1,5 @@
 from capstone import *
+from random import *
 
 conditional_jumps = {'jo', 'jno', 'js', 'jns', 'je', 'jx', 'jne', 'jnz', 'jb', 'jnae', 'jc', 'jnb', 'jae', 'jnc', 'jbe', 'jna', 'ja', 'jnbe', 'jl', 'jnge', 'jge', 'jnl', 'jle', 'jng', 'jg', 'jnle', 'jp', 'jpe', 'jnp', 'jpo', 'jcxz', 'jecxz', 'loop'}
 unconditional_jumps = {'jmp', 'call'}
@@ -12,7 +13,9 @@ last = 0
 
 def capstone_disasm(file_name, start, size, arch, linear):
 	# Load file into a string buffer
+	start = start +0
 	with open(file_name,'r') as file:
+		file.seek(start)
 		file_content = file.read()
 
 	if arch == 64:
@@ -20,15 +23,16 @@ def capstone_disasm(file_name, start, size, arch, linear):
 	else:
 		md = Cs(CS_ARCH_X86, CS_MODE_32)
 
-	if linear:
-		print "Running Capstone Linear Disassembler (" + str(arch) + "-bit) starting from " + str(start) + " for " + str(size) + " bytes!"
+	if linear:	
+		print "Running Capstone Linear Disassembler (" + str(arch) + "-bit) starting from " + str(start) + " for " + str(size) + " bytes!"		
 		for i, oper in enumerate(md.disasm(file_content, start)):
-			print("0x%x:\t%s\t%s" % (oper.address, oper.mnemonic, oper.op_str))
+			print("0x%x:\t%s\t%s" %(oper.address, oper.mnemonic, oper.op_str))
 
 			if i > size:
 				break
 	else:
-		recursive_disasm_capstone(start, file, 0x00, md)
+		with open(file_name,'r') as file:
+			recursive_disasm_capstone(start, file, 0x00, md)
 
 
 def unchecked( address ):

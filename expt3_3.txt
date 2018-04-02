@@ -1,0 +1,1104 @@
+This is an ELF File!
+add al,[eax]
+add [eax],al
+add [eax],eax
+add [eax],eax
+add [eax],eax
+add [eax],al
+adc [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+jnz 0x1c
+Jumping to 0x1c!
+jz 0x66
+push es
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],dl
+add [eax],al
+add [eax],al
+add [eax],al
+add [edx-0x1b],dl
+jz 0x66
+add al,0x0
+add [eax],al
+adc [esi],cl
+add [eax],al
+add [eax],al
+add [eax],al
+adc [esi],cl
+pusha 
+add [eax],al
+add [eax],al
+add [eax],dl
+push cs
+pusha 
+add [eax],al
+add [eax],al
+add al,dh
+add [eax],eax
+add [eax],al
+add [eax],al
+add al,dh
+add [eax],eax
+add [eax],al
+add [eax],al
+add [ecx],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [edi],ch
+insb 
+imul esp,[edx+0x36],0x646c2f34
+sub eax,0x756e696c
+js 0x2f
+Did not go to jump because location has already been visited. (0x2f)
+js 0x3a
+Jumping to 0x3a!
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+adc [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+push edx
+in eax,0x74
+fs add al,0x0
+push cs
+add [eax],al
+add [eax],al
+add [eax],dl
+push cs
+add [eax],al
+add [eax],al
+adc [esi],cl
+add [eax],al
+add [eax],al
+lock add [eax],eax
+add [eax],al
+lock add [eax],eax
+add [eax],al
+add [eax],eax
+add [eax],al
+add [eax],al
+add [eax],al
+das 
+bound esi,[esi]
+xor al,0x2f
+insb 
+fs sub eax,0x756e696c
+ss xor al,0x2e
+jnc 0x71
+Did not go to jump because location has already been visited. (0x71)
+xor al,cs:[eax]
+add al,0x0
+add [eax],al
+adc [eax],al
+add [eax],al
+add [eax],eax
+add [eax],al
+inc edi
+dec esi
+push ebp
+add [eax],al
+add [eax],al
+add [edx],al
+add [eax],al
+add [esi],al
+add [eax],al
+add [eax],ah
+add [eax],al
+add [eax+eax],al
+add [eax],al
+adc al,0x0
+add [eax],al
+add eax,[eax]
+add [eax],al
+inc edi
+dec esi
+push ebp
+add [eax-0x24ca8665],cl
+invd 
+inc edx
+retn 0x6e76
+mov edx,0x1c72a2ca
+dec ebp
+push edx
+sub byte [eax+0x1],0x0
+add [eax],al
+add [eax],eax
+add [eax],al
+add [eax],eax
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+or eax,[eax]
+add [eax],al
+adc al,[eax]
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+adc al,[eax]
+add [eax],al
+adc al,[eax]
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+and al,0x0
+add [eax],al
+and [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [ecx+ebp*2+0x62],ch
+arpl [esi],bp
+jnc 0x71
+Did not go to jump because location has already been visited. (0x71)
+add ss:[eax+0x72],dh
+imul ebp,[esi+0x74],0x5f5f0066
+insb 
+imul esp,[edx+0x63],0x6174735f
+jc 0x76
+Jumping to 0x76!
+add [eax],al
+add [eax],al
+add [eax],al
+ss xor al,0x2f
+insb 
+imul ebp,[esi+0x75],0x38782d78
+ss sub eax,0x732e3436
+outsv 
+xor al,[eax]
+add [eax],al
+add [eax],al
+add al,[eax]
+add [eax],al
+push es
+add [eax],al
+and [eax],al
+add [eax],al
+add al,0x0
+mov [ebx+0xfdb3579],bl
+or [edx-0x3e],al
+jna 0x70
+Did not go to jump because location has already been visited. (0x70)
+mov [0x524d1c72],al
+add [ecx],al
+add [eax],al
+add [ecx],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [ebx],cl
+add [eax],al
+add [edx],dl
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [edx],dl
+add [eax],al
+add [edx],dl
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax+eax],ah
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+insb 
+imul esp,[edx+0x63],0x2e6f732e
+add ss:[eax+0x72],dh
+add [edi+0x5f],bl
+arpl [edi+0x73],bx
+jz 0x63
+pop edi
+insv 
+popa 
+imul ebp,[esi+0x0],0x6d675f5f
+outsv 
+outsb 
+pop edi
+jnc 0x76
+Did not go to jump because location has already been visited. (0x76)
+popa 
+jc 0x76
+Did not go to jump because location has already been visited. (0x76)
+pop edi
+pop edi
+add [edi+0x4c],al
+dec ecx
+inc edx
+inc ebx
+pop edi
+xor ch,[esi]
+xor ch,[esi]
+xor eax,0x0
+add al,[eax]
+imul ecx,[ecx],0x20000
+xor eax,[eax]
+add [eax],al
+add [eax],al
+add [eax],al
+clc 
+punpcklbw mm0,[eax]
+add [eax],al
+add [eax],al
+push es
+add [eax],al
+add [ebx],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],bl
+adc [eax+0x0],ah
+add [eax],al
+add [eax],al
+pop es
+add [eax],al
+add [ecx],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],ah
+adc [eax+0x0],ah
+add [eax],al
+add [eax],al
+pop es
+add [eax],al
+add [edx],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax-0x7d],cl
+in al,dx
+or [eax-0x75],cl
+add eax,0x200c25
+dec eax
+test eax,eax
+jz 0x7
+call 0x48
+Did not go to jump because location has already been visited. (0x48)
+Returned from jumping to 0x76!
+outsb 
+add [edi+0x5f],bl
+insv 
+jz 0x63
+dec esp
+xor ch,cs:[esi]
+add [eax],al
+add [eax],al
+add al,[eax]
+pusha 
+add [eax],al
+add [eax],al
+add [esi],al
+add [eax],al
+add [eax],al
+add [edi],al
+add [eax],al
+add [eax],al
+add [edi],al
+sub esp,0x8
+dec eax
+mov eax,[0x200c25]
+inc ebx
+add [eax],al
+add [eax-0x7d],cl
+les ecx,[eax]
+ret 
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+push dword [0x200c12]
+jmp [0x200c14]
+Did not go to jump because location is not numeric. ([0x200c14])
+Returned from jumping to 0x3a!
+(bnt) jnc 0x72
+Did not go to jump because location has already been visited. (0x72)
+add [eax],dl
+add [eax],al
+add [ecx],al
+add [eax],al
+add [edi+0x4e],al
+add [eax+eax],dl
+add [eax],al
+add [edi+0x4e],al
+wait 
+jns 0x37
+Did not go to jump because location has already been visited. (0x37)
+fisttp [edi]
+outsb 
+retf 0x72a2
+sbb al,0x4d
+push dword 0x1
+jo 0x74
+Jumping to 0x74!
+add [eax],al
+das 
+outsb 
+jnz 0x7a
+Did not go to jump because location has already been visited. (0x7a)
+sub eax,0x2d363878
+add [eax],al
+add [ebx],al
+xor eax,0x42080fdb
+(bnt) jnc 0x72
+Did not go to jump because location has already been visited. (0x72)
+outsb 
+jz 0x68
+pop edi
+bound esp,[ebx+0x5f]
+jnc 0x76
+Did not go to jump because location has already been visited. (0x76)
+popa 
+jz 0x61
+pop edi
+insv 
+jz 0x61
+inc edi
+cs xor eax,0x0
+add [eax],al
+add eax,[eax]
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+sbb [eax],dl
+pusha 
+add [eax],al
+add [eax],eax
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+and [eax],dl
+pusha 
+add [eax],al
+add al,[eax]
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+dec eax
+and eax,0x4800200c
+add esp,0x8
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add bh,bh
+xor eax,0x200c12
+add [edi],cl
+pop ds
+inc eax
+add bh,bh
+and eax,0x200c12
+push dword 0x0
+jmp 0xffffffe5
+Jumping to 0xffffffe5!
+Returned from jumping to 0xffffffe5!
+Returned from jumping to 0x74!
+add [eax],al
+add [edx],al
+add [edx],al
+add [eax],al
+add [ecx],al
+add [ecx],al
+add [ecx],al
+add [eax],al
+add [eax],dl
+add [eax],al
+add [eax],al
+add [eax],al
+add [ebp+0x1a],dh
+add [edx],al
+add [ebx],dh
+add [eax],al
+add [eax],al
+add [eax],al
+add al,bh
+and [eax],al
+sal byte [ebp+eax-0x18],0x43
+or al,0x20
+add bh,bh
+and eax,0x200c14
+Returned from jumping to 0x1c!
+or al,0x20
+add [eax-0x7b],cl
+add [eax],al
+dec eax
+or bl,al
+adc cl,[eax]
+adc al,0xc
+and [eax],al
+jmp [0x200c12]
+Did not go to jump because location is not numeric. ([0x200c12])
+Pydasm - RECURSIVE: TO BE IMPLEMENTED!
+This is an ELF File!
+add al,[eax]
+add [eax],al
+add [eax],eax
+add [eax],eax
+add [eax],eax
+add [eax],al
+adc [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+jnz 0x1c
+Jumping to 0x1c!
+jz 0x66
+push es
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],dl
+add [eax],al
+add [eax],al
+add [eax],al
+add [edx-0x1b],dl
+jz 0x66
+add al,0x0
+add [eax],al
+adc [esi],cl
+add [eax],al
+add [eax],al
+add [eax],al
+adc [esi],cl
+pusha 
+add [eax],al
+add [eax],al
+add [eax],dl
+push cs
+pusha 
+add [eax],al
+add [eax],al
+add al,dh
+add [eax],eax
+add [eax],al
+add [eax],al
+add al,dh
+add [eax],eax
+add [eax],al
+add [eax],al
+add [ecx],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [edi],ch
+insb 
+imul esp,[edx+0x36],0x646c2f34
+sub eax,0x756e696c
+js 0x2f
+Did not go to jump because location has already been visited. (0x2f)
+js 0x3a
+Jumping to 0x3a!
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+adc [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+push edx
+in eax,0x74
+fs add al,0x0
+push cs
+add [eax],al
+add [eax],al
+add [eax],dl
+push cs
+add [eax],al
+add [eax],al
+adc [esi],cl
+add [eax],al
+add [eax],al
+lock add [eax],eax
+add [eax],al
+lock add [eax],eax
+add [eax],al
+add [eax],eax
+add [eax],al
+add [eax],al
+add [eax],al
+das 
+bound esi,[esi]
+xor al,0x2f
+insb 
+fs sub eax,0x756e696c
+ss xor al,0x2e
+jnc 0x71
+Did not go to jump because location has already been visited. (0x71)
+xor al,cs:[eax]
+add al,0x0
+add [eax],al
+adc [eax],al
+add [eax],al
+add [eax],eax
+add [eax],al
+inc edi
+dec esi
+push ebp
+add [eax],al
+add [eax],al
+add [edx],al
+add [eax],al
+add [esi],al
+add [eax],al
+add [eax],ah
+add [eax],al
+add [eax+eax],al
+add [eax],al
+adc al,0x0
+add [eax],al
+add eax,[eax]
+add [eax],al
+inc edi
+dec esi
+push ebp
+add [eax-0x24ca8665],cl
+invd 
+inc edx
+retn 0x6e76
+mov edx,0x1c72a2ca
+dec ebp
+push edx
+sub byte [eax+0x1],0x0
+add [eax],al
+add [eax],eax
+add [eax],al
+add [eax],eax
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+or eax,[eax]
+add [eax],al
+adc al,[eax]
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+adc al,[eax]
+add [eax],al
+adc al,[eax]
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+and al,0x0
+add [eax],al
+and [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [ecx+ebp*2+0x62],ch
+arpl [esi],bp
+jnc 0x71
+Did not go to jump because location has already been visited. (0x71)
+add ss:[eax+0x72],dh
+imul ebp,[esi+0x74],0x5f5f0066
+insb 
+imul esp,[edx+0x63],0x6174735f
+jc 0x76
+Jumping to 0x76!
+add [eax],al
+add [eax],al
+add [eax],al
+ss xor al,0x2f
+insb 
+imul ebp,[esi+0x75],0x38782d78
+ss sub eax,0x732e3436
+outsv 
+xor al,[eax]
+add [eax],al
+add [eax],al
+add al,[eax]
+add [eax],al
+push es
+add [eax],al
+and [eax],al
+add [eax],al
+add al,0x0
+mov [ebx+0xfdb3579],bl
+or [edx-0x3e],al
+jna 0x70
+Did not go to jump because location has already been visited. (0x70)
+mov [0x524d1c72],al
+add [ecx],al
+add [eax],al
+add [ecx],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [ebx],cl
+add [eax],al
+add [edx],dl
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [edx],dl
+add [eax],al
+add [edx],dl
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax+eax],ah
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+insb 
+imul esp,[edx+0x63],0x2e6f732e
+add ss:[eax+0x72],dh
+add [edi+0x5f],bl
+arpl [edi+0x73],bx
+jz 0x63
+pop edi
+insv 
+popa 
+imul ebp,[esi+0x0],0x6d675f5f
+outsv 
+outsb 
+pop edi
+jnc 0x76
+Did not go to jump because location has already been visited. (0x76)
+popa 
+jc 0x76
+Did not go to jump because location has already been visited. (0x76)
+pop edi
+pop edi
+add [edi+0x4c],al
+dec ecx
+inc edx
+inc ebx
+pop edi
+xor ch,[esi]
+xor ch,[esi]
+xor eax,0x0
+add al,[eax]
+imul ecx,[ecx],0x20000
+xor eax,[eax]
+add [eax],al
+add [eax],al
+add [eax],al
+clc 
+punpcklbw mm0,[eax]
+add [eax],al
+add [eax],al
+push es
+add [eax],al
+add [ebx],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],bl
+adc [eax+0x0],ah
+add [eax],al
+add [eax],al
+pop es
+add [eax],al
+add [ecx],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],ah
+adc [eax+0x0],ah
+add [eax],al
+add [eax],al
+pop es
+add [eax],al
+add [edx],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax-0x7d],cl
+in al,dx
+or [eax-0x75],cl
+add eax,0x200c25
+dec eax
+test eax,eax
+jz 0x7
+call 0x48
+Did not go to jump because location has already been visited. (0x48)
+Returned from jumping to 0x76!
+outsb 
+add [edi+0x5f],bl
+insv 
+jz 0x63
+dec esp
+xor ch,cs:[esi]
+add [eax],al
+add [eax],al
+add al,[eax]
+pusha 
+add [eax],al
+add [eax],al
+add [esi],al
+add [eax],al
+add [eax],al
+add [edi],al
+add [eax],al
+add [eax],al
+add [edi],al
+sub esp,0x8
+dec eax
+mov eax,[0x200c25]
+inc ebx
+add [eax],al
+add [eax-0x7d],cl
+les ecx,[eax]
+ret 
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+push dword [0x200c12]
+jmp [0x200c14]
+Did not go to jump because location is not numeric. ([0x200c14])
+Returned from jumping to 0x3a!
+(bnt) jnc 0x72
+Did not go to jump because location has already been visited. (0x72)
+add [eax],dl
+add [eax],al
+add [ecx],al
+add [eax],al
+add [edi+0x4e],al
+add [eax+eax],dl
+add [eax],al
+add [edi+0x4e],al
+wait 
+jns 0x37
+Did not go to jump because location has already been visited. (0x37)
+fisttp [edi]
+outsb 
+retf 0x72a2
+sbb al,0x4d
+push dword 0x1
+jo 0x74
+Jumping to 0x74!
+add [eax],al
+das 
+outsb 
+jnz 0x7a
+Did not go to jump because location has already been visited. (0x7a)
+sub eax,0x2d363878
+add [eax],al
+add [ebx],al
+xor eax,0x42080fdb
+(bnt) jnc 0x72
+Did not go to jump because location has already been visited. (0x72)
+outsb 
+jz 0x68
+pop edi
+bound esp,[ebx+0x5f]
+jnc 0x76
+Did not go to jump because location has already been visited. (0x76)
+popa 
+jz 0x61
+pop edi
+insv 
+jz 0x61
+inc edi
+cs xor eax,0x0
+add [eax],al
+add eax,[eax]
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+sbb [eax],dl
+pusha 
+add [eax],al
+add [eax],eax
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+and [eax],dl
+pusha 
+add [eax],al
+add al,[eax]
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+dec eax
+and eax,0x4800200c
+add esp,0x8
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add bh,bh
+xor eax,0x200c12
+add [edi],cl
+pop ds
+inc eax
+add bh,bh
+and eax,0x200c12
+push dword 0x0
+jmp 0xffffffe5
+Jumping to 0xffffffe5!
+Returned from jumping to 0xffffffe5!
+Returned from jumping to 0x74!
+add [eax],al
+add [edx],al
+add [edx],al
+add [eax],al
+add [ecx],al
+add [ecx],al
+add [ecx],al
+add [eax],al
+add [eax],dl
+add [eax],al
+add [eax],al
+add [eax],al
+add [ebp+0x1a],dh
+add [edx],al
+add [ebx],dh
+add [eax],al
+add [eax],al
+add [eax],al
+add al,bh
+and [eax],al
+sal byte [ebp+eax-0x18],0x43
+or al,0x20
+add bh,bh
+and eax,0x200c14
+Returned from jumping to 0x1c!
+or al,0x20
+add [eax-0x7b],cl
+add [eax],al
+dec eax
+or bl,al
+adc cl,[eax]
+adc al,0xc
+and [eax],al
+jmp [0x200c12]
+Did not go to jump because location is not numeric. ([0x200c12])
+Pydasm - RECURSIVE: TO BE IMPLEMENTED!

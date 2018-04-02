@@ -1,0 +1,91 @@
+This is an ELF File!
+Running Pydasm Linear Disassembler starting from 430 for 182 bytes!
+add [eax],al
+xor al,0x0
+add [eax],al
+add [eax],al
+add [eax],al
+xor al,0x0
+add [eax],al
+add [eax],al
+add [eax],al
+add al,0x0
+add [eax],al
+add [eax],al
+add [eax],al
+push ecx
+in eax,0x74
+fs push es
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [eax],dl
+add [eax],al
+add [eax],al
+add [eax],al
+add [edx-0x1b],dl
+jz 0x66
+add al,0x0
+add [eax],al
+adc [esi],cl
+add [eax],al
+add [eax],al
+add [eax],al
+adc [esi],cl
+pusha 
+add [eax],al
+add [eax],al
+add [eax],dl
+push cs
+pusha 
+add [eax],al
+add [eax],al
+add al,dh
+add [eax],eax
+add [eax],al
+add [eax],al
+add al,dh
+add [eax],eax
+add [eax],al
+add [eax],al
+add [ecx],al
+add [eax],al
+add [eax],al
+add [eax],al
+add [edi],ch
+insb 
+imul esp,[edx+0x36],0x646c2f34
+sub eax,0x756e696c
+js 0x2f
+js 0x3a
+ss sub eax,0x732e3436
+outsv 
+xor al,cs:[eax]
+add al,0x0
+add [eax],al
+adc [eax],al
+add [eax],al
+add [eax],eax
+add [eax],al
+inc edi
+dec esi
+push ebp
+add [eax],al

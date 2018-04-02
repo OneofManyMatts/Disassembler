@@ -1,0 +1,19 @@
+This is an ELF File!.
+0x400480:	xor	ebp, ebp
+0x400482:	mov	r9, rdx
+0x400485:	pop	rsi
+0x400486:	mov	rdx, rsp
+0x400489:	and	rsp, 0xfffffffffffffff0
+0x40048d:	push	rax
+0x40048e:	push	rsp
+0x40048f:	mov	r8, 0x4006a0
+0x400496:	mov	rcx, 0x400630
+0x40049d:	mov	rdi, 0x400576
+0x4004a4:	call	0x400460
+Adding: 4195456 4195497
+Base: 4195424
+Compare: 4195456 4195497
+0x400460:	jmp	qword ptr [rip + 0x200bc2]
+Adding: 4195424 4195430
+Adding: 4195424 4195497
+Apologies- Non-int jump
