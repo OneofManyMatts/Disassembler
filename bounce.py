@@ -26,12 +26,12 @@ def is_elf(file_disas):
 # This finds the start point of the file in memory.
 def get_elf_base_point(file_name):
 	cmd = subprocess.Popen('readelf -l ' + file_name, shell=True, stdout=subprocess.PIPE)
-	address_regex = re.compile("^(?: +)LOAD(?: +)0x(?:[0-9]+) 0x([0-9]+)")
+	address_regex = re.compile("^(?: +)LOAD(?: +)0x(?:[0-9]+) (0x[0-9]+)")
 	for line in cmd.stdout:
 		if "LOAD" in line:
 			address = address_regex.search(line)
 			if address:
-				return int(address.group(1).lstrip("0"), 0)
+				return int(address.group(1), 16)
 			else:
 				print "ERROR: Tried to find base address using readelf -l " + file_name + ", but could not parse line!"
 				exit()
@@ -41,12 +41,12 @@ def get_elf_base_point(file_name):
 # This finds the entry point of the program then returns that value - the start of the file.
 def get_elf_entry_point(file_name):
 	cmd = subprocess.Popen('readelf -h ' + file_name, shell=True, stdout=subprocess.PIPE)
-	address_regex = re.compile("^(?: *)Entry point address:(?: *)0x([0-9a-f]+)(?: *)$")
+	address_regex = re.compile("^(?: *)Entry point address:(?: *)(0x[0-9a-f]+)(?: *)$")
 	for line in cmd.stdout:
 		if "Entry point address:" in line:
 			address = address_regex.search(line)
 			if address:
-				return int(address.group(1), 0) - get_elf_base_point(file_name)
+				return int(str(address.group(1)), 16) - get_elf_base_point(file_name)
 			else:
 				print "ERROR: Tried to find entry point address using readelf -h " + file_name + ", but could not parse line!"
 				exit()
@@ -87,10 +87,7 @@ def get_text_section_size(file_name):
 	exit()
 
 def get_entry_point_and_size(file_name, file_content, arch):
-	if arch == 64:
-		md = Cs(CS_ARCH_X86, CS_MODE_64)
-	else:
-		md = Cs(CS_ARCH_X86, CS_MODE_32)
+	md = Cs(CS_ARCH_X86, CS_MODE_32)
 
 	file_disas = md.disasm(file_content, 0x00)
 	if is_elf(file_disas):

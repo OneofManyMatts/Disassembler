@@ -23,7 +23,7 @@ def capstone_disasm(file_name, start, size, arch, linear):
 	if linear:
 		print "Running Capstone Linear Disassembler (" + str(arch) + "-bit) starting from " + str(start) + " for " + str(size) + " bytes!"
 		for i, oper in enumerate(md.disasm(file_content, start)):
-			print("0x%x:\t%s\t%s" %(oper.address, oper.mnemonic, oper.op_str))
+			print("0x%x:\t%s\t%s" % (oper.address, oper.mnemonic, oper.op_str))
 
 			if i > size:
 				break
